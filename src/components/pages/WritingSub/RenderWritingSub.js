@@ -20,6 +20,9 @@ export const RenderWritingSub = props => {
   const handleSubmit = () => {
     setModalVisible(true);
     setModalText(modalInstructions.submissionComplete);
+    if (props.tasks.hasWritten && props.tasks.hasDrawn) {
+      push('/child/dashboard');
+    }
   };
 
   return (
@@ -66,6 +69,8 @@ export const RenderWritingSub = props => {
 export default connect(
   state => ({
     tasks: state.tasks,
+    hasDrawn: state.tasks.hasDrawn,
+    hasWritten: state.tasks.hasWritten,
   }),
   {
     setHasWritten: tasks.setHasWritten,

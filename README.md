@@ -16,7 +16,7 @@ You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 <br>
 [Product Roadmap](https://www.notion.so/Story-Squad-Roadmap-2682f21ae48b420cbb0caafa3f500b5e)
 <br>
-[UX Design](https://www.figma.com/file/WaHXdLK2NASoFWYVMZLVNt/Story_Squad?node-id=962%3A211)
+[UX Designs](https://www.figma.com/file/WaHXdLK2NASoFWYVMZLVNt/Story_Squad?node-id=962%3A211)
 <br>
 [Architecture Layout](https://whimsical.com/428nXLpzshbbb32xF67Lu4)
 <br>

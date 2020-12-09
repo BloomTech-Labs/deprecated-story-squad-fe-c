@@ -1,6 +1,7 @@
 // istanbul ignore file
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useLocation } from 'react-router-dom';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -48,7 +49,7 @@ import { VotingPage } from './components/pages/VotingPage';
 
 // Note: for demo purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
-
+const location = useLocation;
 ReactDOM.render(
   //
   <Router>
@@ -63,6 +64,7 @@ ReactDOM.render(
 );
 
 function App() {
+  console.log(location.path);
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
@@ -157,9 +159,7 @@ function App() {
         <SecureRoute
           path="/child/match-up"
           exact
-          component={() => (
-            <MatchUp LoadingComponent={ChildLoadingComponent} />
-          )}  
+          component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         <SecureRoute
           path="/child/squad-vote"

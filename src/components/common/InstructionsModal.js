@@ -1,9 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'antd';
-// import { useHistory } from 'react-router-dom';
 
 const InstructionsModal = props => {
-  // const {push} = useHistory();
   const {
     modalVisible,
     style,

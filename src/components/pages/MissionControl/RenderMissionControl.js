@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { InstructionsModal } from '../../common';
 import { getMissionControlText } from '../../../utils/helpers';
@@ -22,6 +23,9 @@ const RenderMissionControl = props => {
   const { hasRead, hasWritten, hasDrawn } = props;
 
   const { push } = useHistory();
+  const location = useLocation();
+  const currentLocation = location.pathname.slice(-15);
+
   const { authState } = useOktaAuth();
 
   useEffect(() => {
@@ -67,6 +71,9 @@ const RenderMissionControl = props => {
     }
   };
 
+  const hasCompletedAll =
+    currentLocation === 'mission-control' && hasWritten && hasDrawn;
+
   return (
     <>
       <Header title="MISSION" />
@@ -74,6 +81,9 @@ const RenderMissionControl = props => {
         modalVisible={modalVisible}
         handleCancel={() => {
           setModalVisible(false);
+          if (hasCompletedAll) {
+            push('/child/dashboard');
+          }
         }}
         handleOk={() => {
           setModalVisible(false);

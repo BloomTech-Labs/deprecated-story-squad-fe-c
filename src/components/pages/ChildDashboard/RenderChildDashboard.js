@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -10,6 +10,9 @@ import change_your_avatar from '../../../assets/images/child_dashboard_images/ch
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
 
 const RenderChildDashboard = props => {
+  const hasCompletedTasks =
+    props.tasks.hasRead && props.tasks.hasWritten && props.tasks.hasDrawn;
+  console.log(hasCompletedTasks);
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(true);
 
@@ -41,7 +44,11 @@ const RenderChildDashboard = props => {
       <div className="dash-container">
         <Row className="toprow">
           <Col
-            className="accept-mission"
+            className={
+              hasCompletedTasks
+                ? 'accept-mission'
+                : 'accept-mission styled-dash-section'
+            }
             xs={24}
             sm={13}
             onClick={handleAcceptMission}
@@ -57,7 +64,15 @@ const RenderChildDashboard = props => {
           </Col>
         </Row>
         <Row className="bottomrow">
-          <Col className="adventure-passport" xs={24} sm={11}>
+          <Col
+            className={
+              hasCompletedTasks
+                ? 'adventure-passport styled-dash-section'
+                : 'adventure-passport'
+            }
+            xs={24}
+            sm={11}
+          >
             <img
               className="child-dash-img"
               src={adventure_passport}

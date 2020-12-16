@@ -89,14 +89,17 @@ const ProfileRenderModal = props => {
           {!selected ? (
             <div className="button-list">
               {userInfo.map(user => {
+                console.log(user);
                 return (
                   <Button
                     type="primary"
                     size="large"
                     key={`${user.type}-${user.ID}`}
                     onClick={e => userSelect(user)}
+                    className="childLoginBtn"
                   >
-                    {user.Name}
+                    <img className="childLoginAvatar" src={user.AvatarURL} />
+                    <p className="childLoginName">{user.Name}</p>
                   </Button>
                 );
               })}

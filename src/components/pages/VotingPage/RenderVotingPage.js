@@ -2,8 +2,10 @@ import React from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { VotingForm } from '../../common';
+import EmojiContainer from '../../common/EmojiContainer';
 
 const RenderVotingPage = props => {
+  console.log(props);
   return (
     <>
       <Header title="VOTE FOR YOUR FAVORITE STORY" displayMenu={true} />
@@ -18,6 +20,10 @@ const RenderVotingPage = props => {
                 alt="writing submission"
               />
             </div>
+            <EmojiContainer
+              submissionId={props.votes.Submission1.ID}
+              sender={props.child.id}
+            />
           </Col>
 
           <Col className="right-half" xs={24} sm={12}>
@@ -31,6 +37,10 @@ const RenderVotingPage = props => {
             <VotingForm
               FaceoffID={props.votes.ID}
               MemberID={props.child.memberId}
+            />
+            <EmojiContainer
+              submissionId={props.votes.Submission2.ID}
+              sender={props.child.id}
             />
           </Col>
         </Row>

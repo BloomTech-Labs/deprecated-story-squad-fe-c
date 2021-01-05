@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EmojiIcon from './EmojiIcon';
 
 import axios from 'axios';
+import emojiUnicode from 'emoji-unicode';
 
 function EmojiContainer(props) {
   let [emojis, setEmojis] = useState([
@@ -16,17 +17,17 @@ function EmojiContainer(props) {
     '😈',
     '👿',
   ]);
-  let [picked, setPicked] = useState([]);
+  let [picked, setPicked] = useState({
+    emojis: [],
+    senderId: props.sender,
+    submissionId: props.submissionId,
+  });
   let [hasVoted, setHasVoted] = useState(false);
 
   // converts emoji into JS object that contains meta data for backend to use
   const handleClick = item => {
-    let emojiMeta = {
-      value: item,
-      senderId: props.sender,
-      submissionId: props.submissionId,
-    };
-    setPicked([...picked, emojiMeta]);
+    let unicode = emojiUnicode(item);
+    setPicked({ ...picked, emojis: [...picked.emojis, unicode] });
   };
 
   // submits 'picked' array to the backend

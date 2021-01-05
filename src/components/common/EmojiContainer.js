@@ -3,6 +3,7 @@ import EmojiIcon from './EmojiIcon';
 
 import axios from 'axios';
 import emojiUnicode from 'emoji-unicode';
+import '../../styles/less/EmojiContainer.less';
 
 function EmojiContainer(props) {
   let [emojis, setEmojis] = useState([
@@ -69,19 +70,13 @@ function EmojiContainer(props) {
     <div className="container">
       {emojisArr}
       <button
+        className="submitBtn"
         disabled={hasVoted}
         onClick={() => {
           handleSubmit(picked);
         }}
       >
         Submit
-      </button>
-      <button
-        onClick={() => {
-          console.log(picked);
-        }}
-      >
-        print picked emojis
       </button>
     </div>
   );

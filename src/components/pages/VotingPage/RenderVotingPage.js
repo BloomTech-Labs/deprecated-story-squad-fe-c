@@ -34,13 +34,13 @@ const RenderVotingPage = props => {
                 alt="writing submission"
               />
             </div>
-            <VotingForm
-              FaceoffID={props.votes.ID}
-              MemberID={props.child.memberId}
-            />
             <EmojiContainer
               submissionId={props.votes.Submission2.ID}
               sender={props.child.id}
+            />
+            <VotingForm
+              FaceoffID={props.votes.ID}
+              MemberID={props.child.memberId}
             />
           </Col>
         </Row>

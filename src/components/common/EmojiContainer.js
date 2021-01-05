@@ -17,6 +17,7 @@ function EmojiContainer(props) {
     '👿',
   ]);
   let [picked, setPicked] = useState([]);
+  let [hasVoted, setHasVoted] = useState(false);
 
   // converts emoji into JS object that contains meta data for backend to use
   const handleClick = item => {
@@ -36,7 +37,10 @@ function EmojiContainer(props) {
         'https://jsonblob.com/api/jsonblob/06560742-4ef4-11eb-bace-f1443624f88f',
         picked
       )
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        setHasVoted(true);
+      })
       .catch(err => console.log(err));
   };
 
@@ -51,6 +55,7 @@ function EmojiContainer(props) {
     <div className="container">
       {emojisArr}
       <button
+        disabled={hasVoted}
         onClick={() => {
           handleSubmit(picked);
         }}

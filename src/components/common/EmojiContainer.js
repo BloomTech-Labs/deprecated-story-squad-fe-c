@@ -3,7 +3,6 @@ import EmojiIcon from './EmojiIcon';
 
 import axios from 'axios';
 import emojiUnicode from 'emoji-unicode';
-import '../../styles/less/EmojiContainer.less';
 
 function EmojiContainer(props) {
   let [emojis, setEmojis] = useState([

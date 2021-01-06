@@ -5,11 +5,6 @@ function EmojiIcon(props) {
 
   return (
     <div
-      style={{
-        border: '1px solid black',
-        display: 'inline-block',
-        background: selected && '#000',
-      }}
       onClick={() => {
         if (!selected) {
           props.handler(props.emoji);

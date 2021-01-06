@@ -5,7 +5,6 @@ import { VotingForm } from '../../common';
 import EmojiContainer from '../../common/EmojiContainer';
 
 const RenderVotingPage = props => {
-  console.log(props);
   return (
     <>
       <Header title="VOTE FOR YOUR FAVORITE STORY" displayMenu={true} />

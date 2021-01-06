@@ -17,11 +17,13 @@ function EmojiContainer(props) {
     '😈',
     '👿',
   ]);
+
   let [picked, setPicked] = useState({
     emojis: [],
     senderId: props.sender,
     submissionId: props.submissionId,
   });
+
   let [hasSentFeedback, setHasSentFeedback] = useState(false);
 
   // converts emoji into JS object that contains meta data for backend to use
@@ -44,7 +46,6 @@ function EmojiContainer(props) {
         picked
       )
       .then(res => {
-        console.log(res);
         setHasSentFeedback(true);
       })
       .catch(err => console.log(err));

@@ -75,7 +75,7 @@ function EmojiContainer(props) {
           handleSubmit(picked);
         }}
       >
-        Submit
+        {hasVoted ? '✔️' : 'Submit'}
       </button>
     </div>
   );

@@ -6,12 +6,16 @@ function EmojiIcon(props) {
   return (
     <div
       onClick={() => {
-        if (!selected) {
-          props.handler(props.emoji);
-        } else {
-          props.remove(props.emoji);
+        // the click event should only fire if the user has not yet provided feedback
+        if (!props.hasSentFeedback) {
+          // toggles between adding and removing the clicked emoji to the picked array
+          if (!selected) {
+            props.handler(props.emoji);
+          } else {
+            props.remove(props.emoji);
+          }
+          setSelected(!selected);
         }
-        setSelected(!selected);
       }}
       className={selected ? 'selected' : 'deselected'}
     >

@@ -22,7 +22,7 @@ function EmojiContainer(props) {
     senderId: props.sender,
     submissionId: props.submissionId,
   });
-  let [hasVoted, setHasVoted] = useState(false);
+  let [hasSentFeedback, setHasSentFeedback] = useState(false);
 
   // converts emoji into JS object that contains meta data for backend to use
   const handleClick = item => {
@@ -31,10 +31,8 @@ function EmojiContainer(props) {
   };
 
   const handleRemoveEmoji = item => {
-    console.log(emojiUnicode(item));
     const unicode = emojiUnicode(item);
     const updatedEmojiArr = picked.emojis.filter(emoji => emoji !== unicode);
-
     setPicked({ ...picked, emojis: updatedEmojiArr });
   };
 
@@ -47,7 +45,7 @@ function EmojiContainer(props) {
       )
       .then(res => {
         console.log(res);
-        setHasVoted(true);
+        setHasSentFeedback(true);
       })
       .catch(err => console.log(err));
   };
@@ -61,6 +59,7 @@ function EmojiContainer(props) {
         remove={handleRemoveEmoji}
         handler={handleClick}
         emoji={item}
+        hasSentFeedback={hasSentFeedback}
       />
     );
   });
@@ -70,12 +69,12 @@ function EmojiContainer(props) {
       {emojisArr}
       <button
         className="submitBtn"
-        disabled={hasVoted}
+        disabled={hasSentFeedback}
         onClick={() => {
           handleSubmit(picked);
         }}
       >
-        {hasVoted ? '✔️' : 'Submit'}
+        {hasSentFeedback ? '✔️' : 'Submit'}
       </button>
     </div>
   );

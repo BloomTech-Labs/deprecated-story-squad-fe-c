@@ -1,4 +1,5 @@
-<h1> Labs 29 "Front End Primer" Introduction </h1>
+**Labs 29 "Front End Primer" Introduction**
+
 The front page of the game now displays the next logical screen that a player should navigate to based on where they are in user flow.
 E.g.: Upon finishing reading the story and submitting a writing/drawing our client should be recommended to go and vote on their favorite 
 user submissions.
@@ -9,7 +10,8 @@ designed to stick out on the screen, giving players a clear indication that they
 be sleek in design and created with our player's quality of life in mind. When presented with the emoji menu, it's very eye catching and easy to see
 how you should use it. We implemented styling and logic that makes the component feel fun and interactive as well as highly functional/smooth
 
-# Technical Specifics 
+**Technical Specifics**
+
 The emoji feedback feature consists of two main components: EmojiContainer and EmojiIcon.  
 EmojiContainer
 This component is responsible for storing local state (data) and rendering the EmojiIcon component. 

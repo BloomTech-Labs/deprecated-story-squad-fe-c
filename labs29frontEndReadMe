@@ -1,4 +1,4 @@
-# Labs 29 "Front End Primer" Introduction
+<h1> Labs 29 "Front End Primer" Introduction </h1>
 The front page of the game now displays the next logical screen that a player should navigate to based on where they are in user flow.
 E.g.: Upon finishing reading the story and submitting a writing/drawing our client should be recommended to go and vote on their favorite 
 user submissions.
